@@ -17,7 +17,7 @@ Here are some ideas to get you started:
 
 <div align="center">
 
-<img src="./countdown.svg" alt="2026 Countdown" width="600">
+<img src="./countdown.svg?v=2" width="600">
 
 </div>
 
