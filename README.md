@@ -14,8 +14,6 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
-<h1 align="center">Hi 👋, I'm Sirada Chaisawat</h1>
-- 📫 How to reach me **sirada.chais@gmail.com**
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
