@@ -15,7 +15,7 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
-<h3 align="left">2026 Countdown !:</h3>
+<h3 align="left">Entering Last quarter of 2026, Let's countdown!:</h3>
 <img src="https://i.countdownmail.com/qlpgzy.gif" style="width:100%!important;" border="0" alt="countdownmail.com"/>
 
 <h3 align="left">Languages and Tools:</h3>
