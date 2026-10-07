@@ -1,0 +1,84 @@
+name: Update 2026 Countdown
+
+on:
+  schedule:
+    - cron: "0 * * * *" # Every hour
+  workflow_dispatch: # Allow manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  update-countdown:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate countdown SVG
+        run: |
+          python3 << 'PY'
+          from datetime import datetime, timezone
+
+          now = datetime.now(timezone.utc)
+          target = datetime(2027, 1, 1, tzinfo=timezone.utc)
+
+          remaining = target - now
+
+          total_seconds = max(0, int(remaining.total_seconds()))
+
+          days = total_seconds // 86400
+          hours = (total_seconds % 86400) // 3600
+
+          svg = f'''<svg width="600" height="160" viewBox="0 0 600 160"
+          xmlns="http://www.w3.org/2000/svg">
+
+            <rect width="600" height="160" rx="16" fill="#0d1117"/>
+
+            <text x="300" y="42"
+                  text-anchor="middle"
+                  fill="#8b949e"
+                  font-family="Arial, sans-serif"
+                  font-size="14"
+                  font-weight="600"
+                  letter-spacing="2">
+              ⏳ TIME LEFT IN 2026
+            </text>
+
+            <text x="300" y="92"
+                  text-anchor="middle"
+                  fill="#ffffff"
+                  font-family="monospace"
+                  font-size="32"
+                  font-weight="700">
+              {days:02d} DAYS · {hours:02d} HOURS
+            </text>
+
+            <text x="300" y="125"
+                  text-anchor="middle"
+                  fill="#8b949e"
+                  font-family="Arial, sans-serif"
+                  font-size="13">
+              until 2027 🚀
+            </text>
+
+          </svg>'''
+
+          with open("countdown.svg", "w") as f:
+              f.write(svg)
+
+          print(f"Countdown: {days} days, {hours} hours")
+          PY
+
+      - name: Commit updated SVG
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add countdown.svg
+
+          git diff --cached --quiet || \
+            git commit -m "chore: update countdown"
+
+          git push
