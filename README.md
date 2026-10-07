@@ -22,5 +22,5 @@ Here are some ideas to get you started:
 </div>
 
 <h3 align="left">Languages and Tools:</h3>
-<img src="https://skillicons.dev/icons?i=react,typescript,javascript,dart,flutter,python,nodejs,vite,tailwind,redux,aws,firebase,supabase,docker,git,github,linux" />
+<img src="https://skillicons.dev/icons?i=react,typescript,javascript,flutter,dart,nodejs,aws,docker,git,github" />
 </p>
